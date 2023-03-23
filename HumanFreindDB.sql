@@ -172,5 +172,33 @@ SELECT * FROM youngAnimals;
 
 ## Объединить все таблицы в одну, при этом сохраняя поля, указывающие на прошлую принадлежность к старым таблицам.
 
+CREATE TABLE finalTable (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY)
+SELECT  Name, 
+        Command,
+        Birthday,
+        'cat' AS oldTable
+FROM cat UNION 
+SELECT  Name, 
+        Command, 
+        Birthday,
+        'dog' AS oldTable
+FROM dog UNION
+SELECT  Name, 
+        Command, 
+        Birthday,
+        'hamster' AS oldTable
+FROM hamster UNION 
+SELECT  Name, 
+        Command, 
+        Birthday,
+        'horse' AS oldTable
+FROM horse UNION 
+SELECT  Name, 
+        Command, 
+        Birthday,
+        'donkey' AS oldTable
+FROM donkey;
 
+    ## проверяем
+    SELECT * FROM finalTable;
 
